@@ -16,10 +16,10 @@ public interface TestMapper {
      * @return
      */
 //    @Select("select * from user where name = #{name} and pwd = #{pwd}")
-    @Select("select * from test where firstField = #{firstField}")
-    TestData findTestDataByFirstField2(@Param("firstField") String firstField);
-
-//    TestData findTestDataByFirstField(String firstField);
+//    @Select("select * from test where firstField = #{firstField}")
+//    TestData findTestDataByFirstField2(@Param("firstField") String firstField);
+//
+    TestData findTestDataByFirstField(String firstField);
 
 
 //    @Select("select * from user")

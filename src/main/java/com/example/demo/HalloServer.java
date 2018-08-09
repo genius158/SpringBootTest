@@ -27,7 +27,7 @@ public class HalloServer {
 //        }
 //        return "";
 
-        TestData testData = testMapper.findTestDataByFirstField2("test2");
+        TestData testData = testMapper.findTestDataByFirstField("test2");
         return "hallo " + word + "   " + testData.getFirstField();
 
 //        {
