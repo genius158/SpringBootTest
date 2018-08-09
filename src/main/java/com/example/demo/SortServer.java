@@ -31,7 +31,7 @@ public class SortServer {
         long[] times = new long[1];
 
         sortInt(arr, 0, arr.length - 1, times);
-        return "{\"sortTimes\":" + times[0] + ",\"data\":" + Arrays.toString(arr) + "}";
+        return "{\"cycleTimes\":" + times[0] + ",\"data\":" + Arrays.toString(arr) + "}";
     }
 
     /**
@@ -43,7 +43,6 @@ public class SortServer {
         if (startIndex > endIndex) {
             return;
         }
-        times[0]++;
 
         int i = startIndex;
         int j = endIndex;
@@ -51,9 +50,11 @@ public class SortServer {
         while (i < j) {
             while (i < j && arr[j] >= baseValue) {
                 j--;
+                times[0]++;
             }
             while (i < j && arr[i] <= baseValue) {
                 i++;
+                times[0]++;
             }
             if (i < j) {
                 int tempValue = arr[j];
@@ -61,6 +62,8 @@ public class SortServer {
                 arr[i] = tempValue;
             }
         }
+        times[0]++;
+
         arr[startIndex] = arr[i];
         arr[i] = baseValue;
 
