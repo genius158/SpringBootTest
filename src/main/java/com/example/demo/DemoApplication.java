@@ -8,6 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.web.WebApplicationInitializer;
 
 @SpringBootApplication
+@MapperScan(basePackages = "com.example.demo.mapper")
 public class DemoApplication
         extends SpringBootServletInitializer implements WebApplicationInitializer {
 

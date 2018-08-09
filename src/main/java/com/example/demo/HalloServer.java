@@ -13,35 +13,24 @@ import java.util.Objects;
 
 @Service
 public class HalloServer {
-    @Autowired
-    private TestMapper testMapper;
+//    @Autowired
+//    private TestMapper testMapper;
+
+//    public String hallo2(String word) {
+//        TestData testData = testMapper.findTestDataByFirstField("test2");
+//        return "hallo " + word + "   " + testData.getSecondField();
+//    }
 
     public String hallo(String word) {
-//        try (SqlSession sqlSession = MapperUtils.getSession()) {
-//            TestMapper testMapper = MapperUtils.getMapper(sqlSession, TestMapper.class);
-//            TestData td = testMapper.findTestDataByFirstField("test2");
-//            sqlSession.close();
-//            return "hallo " + word + " |  " + td.getFirstField() + "   " + td.getSecondField();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return "";
-
-        TestData testData = testMapper.findTestDataByFirstField("test2");
-        return "hallo " + word + "   " + testData.getFirstField();
-
-//        {
-//            String resource = "mybatis-config.xml";
-//            InputStream inputStream = Resources.getResourceAsStream(resource);
-//            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-//
-//            try (SqlSession openSession = sqlSessionFactory.openSession()) {
-//                TestData user = openSession.selectOne(
-//                        "com.example.demo.TestMapper.findTestDataByFirstField", "test2");
-//                System.out.println(user);
-//                return "hallo " + word + " |  " + user.getFirstField() + "   " + user.getSecondField();
-//            }
-//        }
+        try (SqlSession sqlSession = MapperUtils.getSession()) {
+            TestMapper testMapper = MapperUtils.getMapper(sqlSession, TestMapper.class);
+            TestData td = testMapper.findTestDataByFirstField("test2");
+            sqlSession.close();
+            return "hallo " + word + " |  " + td.getFirstField() + "   " + td.getSecondField();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
 }
