@@ -25,7 +25,7 @@ public class SortServer {
                 arr[i] = Integer.parseInt(sortNums[i]);
             } catch (Exception e) {
                 e.printStackTrace();
-                return "input error";
+                return "{\"massage\":\"input error\"}";
             }
         }
         long[] times = new long[1];
